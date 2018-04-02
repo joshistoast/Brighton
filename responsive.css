@@ -1,0 +1,111 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header__menu {
+  display: none;
+}
+
+.hero, .top-news, .scores, .weather, .recent-news {
+  order: 10;
+}
+
+@media screen and (max-width: 549px) {
+  body {
+    overflow-x: hidden;
+  }
+  .header__logo {
+    height: 48px;
+    margin-right: 0.5em;
+  }
+  .header__title {
+    margin-left: 0;
+    font-size: 2em;
+    vertical-align: bottom;
+  }
+  .nav {
+    z-index: 10;
+    background-color: #f7f7f7;
+    width: 100%;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    /* This trasform moves the drawer off canvas. */
+
+    /* Optionally, we animate the drawer. */
+    transition: all 400ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .nav__list {
+    flex-flow: column;
+  }
+  .nav.open {
+    top: 0;
+  }
+  .nav__item {
+    border-bottom: 1px solid #E0E0E0;
+    width: 100%;
+    text-align: center;
+  }
+  .header__menu {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    padding: 1em;
+  }
+  .header__menu svg {
+    width: 32px;
+    fill: #E0E0E0;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .hero {
+    order: 0;
+    width: 60%;
+  }
+  .weather {
+    order: 1;
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .hero {
+    width: 50%;
+  }
+  .top-news {
+    order: 1;
+    width: 50%;
+  }
+  .scores {
+    order: 2;
+    width: 60%;
+  }
+  .weather {
+    order: 3;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  main, .header__inner, .nav, .content {
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .scores__location {
+    display: none;
+  }
+  .scores__table td:nth-child(3) {
+    text-align: center;
+  }
+  .scores__table td:nth-child(5) {
+    text-align: right;
+  }
+  .scores__table td:nth-child(6) {
+    text-align: center;
+  }
+}
